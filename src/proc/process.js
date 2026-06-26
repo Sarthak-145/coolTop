@@ -5,13 +5,13 @@ import { readFile, readdir } from 'node:fs/promises';
 import path from 'path';
 
 const folder = '/proc';
-const stat = '/status';
+const status = '/status';
 
 export async function getProcesses() {
   try {
-    const files = await readdir(folder);
+    const files = await readdir(folder).filter((name) => /^\d+$/.test(name));
     for (const file of files.slice(0, 2)) {
-      const finalpath = path.join(folder, file, stat);
+      const finalpath = path.join(folder, file, status);
       console.log('File path: ', finalpath);
       const content = await readFile(finalpath, 'utf8');
       console.log(content);
