@@ -4,8 +4,9 @@ const parseCpuData = (data) => {
 
   // for 16 core cpu
   const cpus = {};
-  for (let i = 0; i < 16; i++) {
+  for (let i = 0; i < lines.length; i++) {
     // console.log(lines[i]);
+    if (!lines[i].startsWith('cpu')) break;
     const line = lines[i].trim().split(/\s+/);
     const [
       name,
@@ -33,9 +34,7 @@ const parseCpuData = (data) => {
       guestNice: Number(guestNice),
     };
   }
-  console.log(cpus);
+  //   console.log(cpus);
 };
-
-const singleCpu = () => {};
 
 export default parseCpuData;
