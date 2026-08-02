@@ -1,10 +1,10 @@
 import { getCpu } from './proc/cpu.js';
-import { getProcesses } from './proc/process.js';
 import parseCpuData from './parser/cpustatParser.js';
+import pid_stats from './proc/Process_info/PID_STAT.js';
 
 const cpuData = await getCpu();
 parseCpuData(cpuData);
 
 // console.log('CPU DATA: ', cpuData);
 
-// const rawProcessFiles = await getProcesses();
+const pidData = await pid_stats();
