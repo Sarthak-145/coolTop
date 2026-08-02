@@ -34,7 +34,7 @@ const parseCpuData = (data) => {
       guestNice: Number(guestNice),
     };
   }
-  //   console.log(cpus);
+  return cpus;
 };
 
 export default parseCpuData;
